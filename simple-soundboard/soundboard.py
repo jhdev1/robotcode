@@ -12,9 +12,9 @@ GPIO.setup(25, GPIO.IN)
 
 pygame.mixer.init(48000, -16, 1, 1024)
 
-sndA = pygame.mixer.Sound("buzzer.wav")
-sndB = pygame.mixer.Sound("clap.wav")
-sndC = pygame.mixer.Sound("laugh.wav")
+sndA = pygame.mixer.Sound("Scream.wav")
+sndB = pygame.mixer.Sound("CastleThunder.wav")
+sndC = pygame.mixer.Sound("applause.wav")
 
 soundChannelA = pygame.mixer.Channel(1)
 soundChannelB = pygame.mixer.Channel(2)
@@ -25,11 +25,14 @@ print "Soundboard Ready."
 while True:
     try:
         if (GPIO.input(23) == True):
+            print "sndA"
             soundChannelA.play(sndA)
         if (GPIO.input(24) == True):
+            print "sndB"
             soundChannelB.play(sndB)
         if (GPIO.input(25) == True):
+            print "sndC"
             soundChannelC.play(sndC)
-        sleep(.01)
+        sleep(0.1)
     except KeyboardInterrupt:
         exit()
